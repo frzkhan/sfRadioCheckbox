@@ -1,0 +1,27 @@
+<div sf-field-model="sf-new-array"
+     sf-new-array
+     ng-controller="radioCheckbox"
+     class="form-group schema-form-checkboxes {{form.htmlClass}}"
+     ng-class="{'has-error': form.disableErrorState !== true &&  hasError(), 'has-success': form.disableSuccessState !== true &&  hasSuccess()}">
+  <label class="control-label {{form.labelHtmlClass}}"
+         sf-field-model
+         schema-validate="form"
+         ng-show="showTitle()">{{form.title}}</label>
+
+  <div class="checkbox {{btnClass}}" ng-repeat="val in titleMapValues track by $index"
+  ng-hide="form.titleMap[$index].hide"
+  ng-class="form.titleMap[$index].htmlClass">
+    <label>
+      <input type="checkbox"
+             ng-disabled="form.readonly"
+             sf-changed="form"
+             class="{{form.fieldHtmlClass}}"
+             ng-model="titleMapValues[$index]"
+             name="{{form.key.slice(-1)[0]}}"
+             ng-click="check($event, form.titleMap[$index])">
+      <span ng-bind-html="form.titleMap[$index].name" class="{{form.labelHtmlClass}}"></span>
+    </label>
+
+  </div>
+  <div class="help-block" sf-message="form.description"></div>
+</div>
