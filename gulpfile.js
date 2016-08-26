@@ -28,7 +28,7 @@ gulp.task('minify', function () {
   var files = JSON.parse(fs.readFileSync('sources.json', 'utf-8'));
   var stream = streamqueue({ objectMode: true },
     gulp.src(['src/templates/**/*.html']).pipe(templateCache({
-      standalone: true,
+      standalone: false,
       root: 'src/templates/',
     })),
     gulp.src(files)

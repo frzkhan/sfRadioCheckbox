@@ -6,7 +6,7 @@ angular.module('sfRadioCheckbox', [
   schemaFormDecoratorsProvider.defineAddOn(
     'bootstrapDecorator',           // Name of the decorator you want to add to.
     'sfRadioCheckbox',                      // Form type that should render this add-on
-    'src/templates/sfRadioCheckbox.html',  // Template name in $templateCache
+    'src/templates/sf-radio-checkbox/sfRadioCheckbox.html',  // Template name in $templateCache
     sfBuilderProvider.stdBuilders   // List of builder functions to apply.
   );
 
