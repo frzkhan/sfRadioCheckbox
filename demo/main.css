@@ -8,14 +8,14 @@
   padding: 0 25px;
 }
 
-.radioBtn .checkbox {
+.radioBtn .sf-radio-checkbox {
   margin: 0;
   float: left;
 }
-.radioBtn .checkbox label, .radioBtn .checkbox label span {
+.radioBtn .sf-radio-checkbox label, .radioBtn .sf-radio-checkbox label span {
   width: 100%;
 }
-.radioBtn .checkbox input {
+.radioBtn .sf-radio-checkbox input {
   display:none;
 }
 .radioBtn .visible{

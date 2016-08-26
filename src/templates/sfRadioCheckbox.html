@@ -7,8 +7,8 @@
          sf-field-model
          schema-validate="form"
          ng-show="showTitle()">{{form.title}}</label>
-
-  <div class="checkbox {{btnClass}}" ng-repeat="val in titleMapValues track by $index"
+<div>
+  <div class="sf-radio-checkbox {{btnClass}}" ng-repeat="val in titleMapValues track by $index"
   ng-hide="form.titleMap[$index].hide"
   ng-class="form.titleMap[$index].htmlClass">
     <label>
@@ -19,9 +19,9 @@
              ng-model="titleMapValues[$index]"
              name="{{form.key.slice(-1)[0]}}"
              ng-click="check($event, form.titleMap[$index])">
-      <span ng-bind-html="form.titleMap[$index].name" class="{{form.labelHtmlClass}}"></span>
+      <span ng-bind-html="form.titleMap[$index].name" class="{{form.textHtmlClass}}"></span>
     </label>
-
+<div>
   </div>
   <div class="help-block" sf-message="form.description"></div>
 </div>
