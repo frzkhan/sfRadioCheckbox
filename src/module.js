@@ -15,25 +15,47 @@ angular.module('sfRadioCheckbox', [
     if($scope.form.htmlClass === 'radioBtn'){
       $scope.btnClass = 'col-md-'+(12/$scope.form.titleMap.length);
     }
-  })
-  $scope.check = function ($event, item) {
-    if($event.target.checked) {
-      $scope.form.titleMap.map(function(titleMap){
-        if(titleMap.value === item.value) {
+    $scope.$watch('titleMapValues', function(v) {
+      if($scope.titleMapValues.contains(true)) {
+        $scope.form.titleMap.map(function(titleMap, i) {
+          titleMap.hide = !$scope.titleMapValues[i]
+          if(!titleMap.hide) {
+            titleMap.htmlClass = 'visible'
+          }
+        })
+      } else {
+        $scope.form.titleMap.map(function(titleMap){
           titleMap.hide = false
-          titleMap.htmlClass = 'visible'
-        } else {
-          titleMap.hide = true
           titleMap.htmlClass = ''
-        }
-        return titleMap
-      })
-    } else {
-      $scope.form.titleMap.map(function(titleMap){
-        titleMap.hide = false
-        titleMap.htmlClass = ''
-        return titleMap
-      })
-    }
-  }
-});;
+          return titleMap;
+        });
+      }
+    })
+  })
+
+  Array.prototype.contains = function(needle) {
+      // Per spec, the way to identify NaN is that it is not equal to itself
+      var findNaN = needle !== needle;
+      var indexOf;
+
+      if(!findNaN && typeof Array.prototype.indexOf === 'function') {
+          indexOf = Array.prototype.indexOf;
+      } else {
+          indexOf = function(needle) {
+              var i = -1, index = -1;
+
+              for(i = 0; i < this.length; i++) {
+                  var item = this[i];
+
+                  if((findNaN && item !== item) || item === needle) {
+                      index = i;
+                      break;
+                  }
+              }
+
+              return index;
+          };
+      }
+      return indexOf.call(this, needle) > -1;
+  };
+});

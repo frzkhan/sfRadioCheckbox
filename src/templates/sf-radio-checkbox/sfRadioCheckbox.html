@@ -17,8 +17,7 @@
              sf-changed="form"
              class="{{form.fieldHtmlClass}}"
              ng-model="titleMapValues[$index]"
-             name="{{form.key.slice(-1)[0]}}"
-             ng-click="check($event, form.titleMap[$index])">
+             name="{{form.key.slice(-1)[0]}}">
       <span ng-bind-html="form.titleMap[$index].name" class="{{form.textHtmlClass}}"></span>
     </label>
 <div>
