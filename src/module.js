@@ -15,8 +15,8 @@ angular.module('sfRadioCheckbox', [
     if($scope.form.htmlClass === 'radioBtn'){
       $scope.btnClass = 'col-md-'+(12/$scope.form.titleMap.length);
     }
-    $scope.$watch('titleMapValues', function(v) {
-      if($scope.titleMapValues.contains(true)) {
+    $scope.$watch('titleMapValues', function(v, o) {
+      if($scope.titleMapValues.contains(true) && angular.equals(v, o)) {
         $scope.form.titleMap.map(function(titleMap, i) {
           titleMap.hide = !$scope.titleMapValues[i]
           if(!titleMap.hide) {
