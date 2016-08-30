@@ -30,7 +30,7 @@ angular.module('sfRadioCheckbox', [
           return titleMap;
         });
       }
-    })
+    }, true)
   })
 
   Array.prototype.contains = function(needle) {
