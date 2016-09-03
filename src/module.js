@@ -12,7 +12,7 @@ angular.module('sfRadioCheckbox', [
 
 }).controller('radioCheckbox', function($scope){
   $scope.$applyAsync(function() {
-    if($scope.form.htmlClass === 'radioBtn'){
+    if(/radioBtn/.test($scope.form.htmlClass)) {
       $scope.btnClass = 'col-md-'+(12/$scope.form.titleMap.length);
     }
     $scope.$watch('titleMapValues', function(v, o) {
