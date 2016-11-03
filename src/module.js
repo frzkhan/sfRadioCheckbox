@@ -16,7 +16,7 @@ angular.module('sfRadioCheckbox', [
       $scope.btnClass = 'col-xs-'+(12/$scope.form.titleMap.length);
     }
     $scope.$watch('titleMapValues', function(v, o) {
-      if($scope.titleMapValues.contains(true)) {
+      if($scope.titleMapValues.indexOf(true) !== -1) {
         $scope.form.titleMap.map(function(titleMap, i) {
           titleMap.hide = !$scope.titleMapValues[i]
           if(!titleMap.hide) {
@@ -32,30 +32,4 @@ angular.module('sfRadioCheckbox', [
       }
     }, true)
   })
-
-  Array.prototype.contains = function(needle) {
-      // Per spec, the way to identify NaN is that it is not equal to itself
-      var findNaN = needle !== needle;
-      var indexOf;
-
-      if(!findNaN && typeof Array.prototype.indexOf === 'function') {
-          indexOf = Array.prototype.indexOf;
-      } else {
-          indexOf = function(needle) {
-              var i = -1, index = -1;
-
-              for(i = 0; i < this.length; i++) {
-                  var item = this[i];
-
-                  if((findNaN && item !== item) || item === needle) {
-                      index = i;
-                      break;
-                  }
-              }
-
-              return index;
-          };
-      }
-      return indexOf.call(this, needle) > -1;
-  };
 });
